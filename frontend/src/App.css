@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap");
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+.App {
+    min-height: 100vh;
+    display: flex;
+    background-position: center;
+    background-size: cover;
+    background-color: #222121;
+    margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #121212;
+        /* Dark background */
+        font-family: Arial, sans-serif;
+
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(136, 136, 136, 0.281);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
