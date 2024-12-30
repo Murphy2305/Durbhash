@@ -12,7 +12,7 @@ const {notFound, errorHandler} = require('./Middleware/errorMiddleware');
 const path = require('path');
 
 
-
+// comments are required
 // Middleware
 app.use(cors()); // Corrected by calling cors() as a function (important to call it as a function)
 app.use(express.json()); 
