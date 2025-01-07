@@ -27,6 +27,12 @@ userSchema.methods.matchPassword = async function (enteredPassword) {
 
 
 userSchema.pre("save", async function (next) {
+ 
+  // avoids rehashing of password
+  //If the user updates any field other than the password (e.g., their email or profile picture), the save hook will still be triggered.
+// Without the isModified check, the password would be hashed again, even if it hasn't changed. 
+// his would lead to double or multiple hashing, making the password invalid as it would no longer match the original hash.
+  
   if (!this.isModified) {
     next();
   }

@@ -6,7 +6,7 @@ import { ChatState } from "../../Context/ChatProvider";
 const Chatbox = ({ fetchAgain, setFetchAgain }) => {
   const { selectedChat } = ChatState();
 
-  console.log("selected chat is :",selectedChat);
+  // console.log("selected chat is :",selectedChat);
   
 
   return (
