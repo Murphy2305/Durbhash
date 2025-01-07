@@ -9,6 +9,12 @@ import UpdateGroupChatModal from "../Miscllaneous/UpdateGroupChatModal";
 import axios from "axios";
 import '../../Styles/ChatBox.css'
 import ScrollableChats from "./ScrollableChats";
+import io from 'socket.io-client';
+
+
+
+const ENDPOINT =  'http://127.0.0.1:5007';
+var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   const { user, setSelectedChat, selectedChat } = ChatState();
@@ -18,6 +24,40 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   const [messages, setMessages] = useState([]);
   const [loading, setloading] = useState(false);
   const [newMessage, setnewMessage] = useState("");
+  const [socketConnected,setSocketConnected] = useState(false);
+
+    useEffect(()=>{
+    socket = io(ENDPOINT);
+    socket.emit('setup',user);
+    socket.on('connected',()=>setSocketConnected(true));
+
+  },[])
+
+    
+  useEffect(() => {
+    fetchMessages();
+        selectedChatCompare = selectedChat;
+
+  }, [selectedChat]);
+
+
+  useEffect(() => {
+    socket.on("message recieved", (newMessageRecieved) => {
+      if (
+        !selectedChatCompare || // if chat is not selected or doesn't match current chat
+        selectedChatCompare._id !== newMessageRecieved.chat._id
+      ) {
+        if (!notification.includes(newMessageRecieved)) {
+          // setNotification([newMessageRecieved, ...notification]);
+          setFetchAgain(!fetchAgain);
+        }
+      } else {
+        setMessages([...messages, newMessageRecieved]);
+      }
+    });
+  });
+
+
 
 
   const fetchMessages = async () => {
@@ -38,7 +78,8 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       );
       setMessages(data);
       setloading(false);
-
+      socket.emit('join chat',selectedChat._id);
+      
     } catch (error) {
       toast({
         title: "Error Occured!",
@@ -70,8 +111,9 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
           },
           config
         );
+        socket.emit("new message", data);
         setMessages([...messages, data]);
-        console.log(data);
+        // console.log(data);
         
       } catch (error) {
         toast({
@@ -93,11 +135,6 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
     setnewMessage(e.target.value);
   };
 
-
-
-  useEffect(() => {
-    fetchMessages();
-  }, [selectedChat]);
 
 
 

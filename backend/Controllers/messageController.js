@@ -13,7 +13,7 @@ const sendMessage = asyncHandler(async (req,res) => {
         console.log("Invalid data passed into request");
         res.sendStatus(400);        
     }
-    console.log(chatId, content, req.user._id);
+    // console.log(chatId, content, req.user._id);
 
     var newMessage = {
         sender : req.user._id,
