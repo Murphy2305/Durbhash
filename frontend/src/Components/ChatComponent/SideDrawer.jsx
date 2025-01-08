@@ -43,6 +43,11 @@ const SideDrawer = () => {
     setUser,
     setChats,} = ChatState();
 
+    
+ let imgsrc = user?.pic;
+  if (imgsrc?.includes('backend')) {
+    imgsrc = `api/${user.pic.replace(/\\/g, "/")}`;
+  } 
 
   const navigate = useNavigate();
   const toast = useToast();
@@ -196,7 +201,7 @@ const SideDrawer = () => {
                 size="sm"
                 cursor="pointer"
                 name={user.name}
-                src={`api/${user.pic.replace(/\\/g, '/')}`}
+                src={imgsrc}
                 className="avatar" // Avatar class
               />
             </MenuButton>
