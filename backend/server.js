@@ -95,13 +95,7 @@ io.on("connection", (socket) => {
   });
 
 
-    socket.on("latest message", (chat)=>{
-    if (!chat.users) return console.log("chat.users not defined");
 
-      socket.in(user._id).emit("latest message recieved", chat.latestMessage);
-    });
-
-    
   socket.off("setup", () => {
     console.log("USER DISCONNECTED");
     socket.leave(userData._id);

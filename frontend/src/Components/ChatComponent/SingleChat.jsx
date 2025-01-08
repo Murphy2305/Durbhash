@@ -12,7 +12,6 @@ import ScrollableChats from "./ScrollableChats";
 import Lottie from 'react-lottie';
 import animationData from "../../animations/typinAnimation.json";
 
-
 import io from 'socket.io-client';
 
 
@@ -25,7 +24,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 
 
 
-  const { user, setSelectedChat, selectedChat } = ChatState();
+  const { user, setSelectedChat, selectedChat , notification, setNotification} = ChatState();
 
   const toast = useToast();
 
@@ -73,7 +72,9 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         selectedChatCompare._id !== newMessageRecieved.chat._id
       ) {
         if (!notification.includes(newMessageRecieved)) {
-          // setNotification([newMessageRecieved, ...notification]);
+          setNotification([newMessageRecieved, ...notification]);
+          console.log("---",notification);
+          
           setFetchAgain(!fetchAgain);
         }
       } else {

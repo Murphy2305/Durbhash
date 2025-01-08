@@ -29,7 +29,8 @@ import { useToast } from '@chakra-ui/react';
 import ChatLoading from './ChatLoading'
 import UserListItem from '../Avatar/UserListItem';
 import axios from 'axios';
-
+import { getSender } from '../../config/ChatLogic';
+import { Badge } from '@chakra-ui/react';
 
 const SideDrawer = () => {
   const [search, setSearch] = useState('');
@@ -41,7 +42,10 @@ const SideDrawer = () => {
     user,
     chats,
     setUser,
-    setChats,} = ChatState();
+    setChats,
+    notification,
+    setNotification
+  } = ChatState();
 
     
  let imgsrc = user?.pic;
@@ -188,10 +192,26 @@ const SideDrawer = () => {
         <div>
           <Menu>
             <MenuButton p={1}>
-              <BellIcon fontSize="2xl" m={1} color={'#00cc00'} />
+            <Badge count={notification.length} colorScheme="red"></Badge>
+
+  <BellIcon fontSize="2xl" m={1} color={'#00cc00'} />
+
             </MenuButton>
             <MenuList className="menu">
-              <MenuItem className="menu-item">No new notifications</MenuItem>
+             {!notification.length && "No New Messages"}
+              {notification.map((notif) => (
+                <MenuItem className='menu item'
+                  key={notif._id}
+                  onClick={() => {
+                    setSelectedChat(notif.chat);
+                    setNotification(notification.filter((n) => n !== notif));
+                  }}
+                >
+                  {notif.chat.isGroupChat
+                    ? `New Message in ${notif.chat.chatName}`
+                    : `New Message from ${getSender(user, notif.chat.users)}`}
+                </MenuItem>
+              ))}   
             </MenuList>
           </Menu>
 
