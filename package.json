@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon backend/server.js",
-    "build": "npm install  && npm install --prefix frontend && npm run build --prefix frontend",
+    "build": "npm install --legacy-peer-deps && npm install --legacy-peer-deps --prefix frontend && npm run build --prefix frontend",
     "server": "nodemon backend/server.js"
   },
   "author": "Kpss",
@@ -26,6 +26,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.10.0",
     "mongoose": "^8.7.2",
+    "moongose": "^1.0.0",
     "multer": "^1.4.5-lts.1",
     "nodemon": "^3.1.7",
     "socket-io": "^1.0.0",
