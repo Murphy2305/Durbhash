@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://127.0.0.1:5007', // Replace with your backend URL
+        target: 'https://durbhash-chat.vercel.app/', // Replace with your backend URL
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''), // Adjust based on backend API route
       },
