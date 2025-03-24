@@ -34,7 +34,7 @@ const data =
     }
 
 app.get('/aa',(req,res)=>{
-    res.json(data);
+    res.send(data);
 })
 
 
