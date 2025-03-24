@@ -60,6 +60,9 @@ const io = require('socket.io')(server,{
     pingTimeout : 60000,
     cors:{
         origin: "https://chatdurbhash.vercel.app",
+        methods: ["POST", "GET"],
+  credentials: true
+
     },
 })
 
