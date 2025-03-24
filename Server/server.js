@@ -59,7 +59,7 @@ const server = app.listen(PORT, () => {
 const io = require('socket.io')(server,{
     pingTimeout : 60000,
     cors:{
-        origin: "https://chatdurbhash.vercel.app",
+        origin: "https://durbhash-i4cz.vercel.app/",
         methods: ["POST", "GET"],
   credentials: true
 
