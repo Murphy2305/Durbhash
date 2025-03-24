@@ -60,9 +60,6 @@ const io = require('socket.io')(server,{
     pingTimeout : 60000,
     cors:{
         origin: "https://durbhash-2.onrender.com/",
-        methods: ["POST", "GET"],
-  credentials: true
-
     },
 })
 
