@@ -1,0 +1,20 @@
+{
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/server.js"
+    }
+  ],
+  "env": {
+    "PORT": "5007",
+    "MONGO_URI": "mongodb+srv://kpshekhawat678:WGwX9Bj9VVfzYAey@cluster0.pgtkh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+    "JWT": "chipchipchapachapa",
+    "NODE_ENV": "production"
+  }
+}
