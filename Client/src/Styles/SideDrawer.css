@@ -1,0 +1,113 @@
+/* SideDrawer.css */
+
+.side-drawer {
+    background-color: #222;
+    /* Dark background */
+    padding: 5px 10px;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.menu-button {
+    color: #333;
+    /* White text */
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.menu-button:hover {
+    background-color: #00cc00;
+    /* Green shade on hover */
+}
+
+.tooltip .chakra-tooltip {
+    background-color: #333;
+    /* Dark background for tooltip */
+    color: #fff;
+    /* White text */
+    border-radius: 4px;
+}
+
+.tooltip .chakra-tooltip[data-popper-placement^="top"] .chakra-tooltip-arrow::before {
+    border-top-color: #333;
+    /* Matching the tooltip's background */
+}
+
+.tooltip .chakra-tooltip[data-popper-placement^="bottom"] .chakra-tooltip-arrow::before {
+    border-bottom-color: #333;
+    /* Matching the tooltip's background */
+}
+
+.tooltip :hover {
+    background-color: #333;
+}
+
+.menu {
+    background-color: #333;
+    /* Dark background for menu */
+}
+
+.menu-item {
+    color: #fff;
+    /* White text */
+    padding: 10px;
+}
+
+.menu-item:hover {
+    background-color: #00cc00;
+    /* Green shade on hover */
+}
+
+.menu-divider {
+    border-top: 1px solid #444;
+    /* Subtle divider */
+}
+
+.avatar {
+    border: 2px solid #00ff00;
+    /* Green border */
+    transition: border-color 0.3s ease;
+}
+
+.avatar:hover {
+    border-color: #00cc00;
+    /* Green hover effect */
+}
+
+.chakra-avatar__img {
+    border-radius: 50%;
+}
+
+.text {
+    color: #fff;
+    /* White text */
+}
+
+.text:hover {
+    color: #00cc00;
+    /* Green hover effect on text */
+}
+
+
+
+
+
+Text :hover {
+    background-color: #00cc00;
+}
+
+
+
+@media (max-width: 400px) {
+    .side-drawer {
+        padding: 10px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .side-drawer {
+        padding: 15px;
+    }
+}
