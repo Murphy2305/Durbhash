@@ -59,7 +59,7 @@ const server = app.listen(PORT, () => {
 const io = require('socket.io')(server,{
     pingTimeout : 60000,
     cors:{
-        origin: ["https://durbhash-2.onrender.com/", 'http://localhost:5173/', 'http://localhost:4173/'],
+        origin:  'http://localhost:5173/'
     },
 })
 

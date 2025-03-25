@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-    "proxy": "https://durbhash-chat.vercel.app",
+    "proxy": "https://durbhash-backend.onrender.com",
 
   "scripts": {
     "dev": "vite",

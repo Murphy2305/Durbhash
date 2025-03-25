@@ -16,7 +16,7 @@ import io from 'socket.io-client';
 
 
 
-const ENDPOINT =  'https://durbhash-chat.vercel.app/';
+const ENDPOINT =  'https://durbhash-backend.onrender.com/';
 var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
