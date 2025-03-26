@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "npm install --prefix Server && npm install --prefix Client && npm run build --prefix Client",
-    "start": "npm run start --prefix Server"
-  },
+  "build": "npm install --prefix Server && npm install --prefix Client --include=dev && npm run build --prefix Client",
+  "start": "npm run start --prefix Server"
+}
+,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Murphy2305/Durbhash.git"
