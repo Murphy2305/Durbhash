@@ -38,6 +38,7 @@ app.get('/aa',(req,res)=>{
 })
 
 
+const __dirname = path.resolve();
 
 
 
@@ -45,6 +46,14 @@ app.use('/user',userRoute);
 app.use('/chat',chatRoute);
 app.use('/message', messageRoute);
 
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../Client/dist")));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../Client", "dist", "index.html"));
+  });
+}
 
 
 
@@ -59,7 +68,7 @@ const server = app.listen(PORT, () => {
 const io = require('socket.io')(server,{
     pingTimeout : 60000,
     cors:{
-        origin:  'https://durbhash-nhh2.onrender.com'
+        origin:  'http://localhost:5173'
     },
 })
 
